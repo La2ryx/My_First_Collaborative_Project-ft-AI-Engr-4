@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart — Maison Élégance</title>
+  <meta name="description" content="Review your items and proceed to checkout.">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+  <!-- ======== NAVBAR ======== -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-white shadow-sm">
+    <nav class="container mx-auto flex items-center justify-between px-4 py-3">
+      <a href="index.html" class="text-2xl font-bold tracking-wide text-gray-900">
+        MAISON <span class="font-light text-gray-500">ÉLÉGANCE</span>
+      </a>
+      <div class="hidden lg:flex flex-1 items-center justify-center px-4">
+        <input type="text" placeholder="Search products..."
+               class="w-full max-w-md border border-gray-300 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gray-400">
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="#" class="text-sm text-gray-600 hover:text-gray-900 hidden lg:inline">My Account</a>
+        <button id="menu-toggle" class="lg:hidden p-2" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="hidden lg:hidden flex-col bg-white border-t shadow-md">
+      <div class="px-4 py-2">
+        <input type="text" placeholder="Search products..."
+               class="w-full border border-gray-300 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gray-400">
+      </div>
+      <a href="index.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Home</a>
+      <a href="catalog.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Catalog</a>
+      <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Account</a>
+    </div>
+  </header>
+
+  <!-- ======== BREADCRUMB ======== -->
+  <nav aria-label="breadcrumb" class="container mx-auto px-4 pt-24 pb-2 text-sm text-gray-500">
+    <a href="index.html" class="hover:text-gray-900">Home</a>
+    <span class="mx-2">›</span>
+    <span class="text-gray-900 font-semibold">Cart</span>
+  </nav>
+
+  <!-- ======== CART TITLE ======== -->
+  <section class="container mx-auto px-4 py-6">
+    <h1 class="text-3xl font-light">Shopping Cart</h1>
+  </section>
+
+  <!-- ======== CART ITEMS + SUMMARY ======== -->
+  <div class="container mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+    <!-- Cart items (takes 2/3 on desktop) -->
+    <div class="lg:col-span-2 space-y-6">
+
+      <!-- Item 1 -->
+      <article class="bg-white rounded-lg shadow-sm flex flex-col sm:flex-row items-center gap-4 p-4">
+        <div class="w-20 h-20 bg-gray-200 rounded overflow-hidden">
+          <img src="assets/images/coat.jpg" alt="Classic Merino Coat" class="w-full h-full object-cover">
+        </div>
+        <div class="flex-1">
+          <h2 class="font-semibold text-lg">Classic Merino Coat</h2>
+          <p class="text-gray-500 text-sm">Camel · Size S</p>
+          <p class="text-gray-700 font-semibold">€289,00</p>
+        </div>
+        <div>
+          <label class="text-xs text-gray-500">Qty</label>
+          <input type="number" value="1" min="1" max="10"
+                 class="w-16 border border-gray-300 rounded px-2 py-1 text-sm">
+        </div>
+        <p class="font-bold text-lg">€289,00</p>
+      </article>
+
+      <!-- Item 2 -->
+      <article class="bg-white rounded-lg shadow-sm flex flex-col sm:flex-row items-center gap-4 p-4">
+        <div class="w-20 h-20 bg-gray-200 rounded overflow-hidden">
+          <img src="assets/images/blazer.jpg" alt="Linen Blazer" class="w-full h-full object-cover">
+        </div>
+        <div class="flex-1">
+          <h2 class="font-semibold text-lg">Linen Blazer</h2>
+          <p class="text-gray-500 text-sm">Navy · Size M</p>
+          <p class="text-gray-700 font-semibold">€195,00</p>
+        </div>
+        <div>
+          <label class="text-xs text-gray-500">Qty</label>
+          <input type="number" value="2" min="1" max="10"
+                 class="w-16 border border-gray-300 rounded px-2 py-1 text-sm">
+        </div>
+        <p class="font-bold text-lg">€390,00</p>
+      </article>
+
+      <!-- Item 3 -->
+      <article class="bg-white rounded-lg shadow-sm flex flex-col sm:flex-row items-center gap-4 p-4">
+        <div class="w-20 h-20 bg-gray-200 rounded overflow-hidden">
+          <img src="assets/images/scarf.jpg" alt="Cashmere Scarf" class="w-full h-full object-cover">
+        </div>
+        <div class="flex-1">
+          <h2 class="font-semibold text-lg">Cashmere Scarf</h2>
+          <p class="text-gray-500 text-sm">Beige · One size</p>
+          <p class="text-gray-700 font-semibold">€129,00</p>
+        </div>
+        <div>
+          <label class="text-xs text-gray-500">Qty</label>
+          <input type="number" value="1" min="1" max="10"
+                 class="w-16 border border-gray-300 rounded px-2 py-1 text-sm">
+        </div>
+        <p class="font-bold text-lg">€129,00</p>
+      </article>
+
+    </div>
+
+    <!-- Summary box (takes 1/3 on desktop) -->
+    <aside class="bg-white rounded-lg shadow-sm p-6 h-fit">
+      <h2 class="text-xl font-semibold mb-4">Order Summary</h2>
+      <div class="space-y-2 text-sm">
+        <div class="flex justify-between">
+          <span>Subtotal</span>
+          <span>€808,00</span>
+        </div>
+        <div class="flex justify-between">
+          <span>Tax (8.5%)</span>
+          <span>€68,68</span>
+        </div>
+        <hr class="border-gray-300 my-2">
+        <div class="flex justify-between text-lg font-bold">
+          <span>Total</span>
+          <span>€876,68</span>
+        </div>
+      </div>
+      <a href="checkout.html" class="block w-full bg-gray-900 text-white text-center font-medium px-6 py-3 rounded-full mt-6 hover:bg-gray-800 transition">
+        Purchase
+      </a>
+    </aside>
+
+  </div>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="bg-gray-900 text-gray-300">
+    <div class="container mx-auto px-4 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div>
+          <h4 class="text-white font-semibold text-lg mb-4">Categories</h4>
+          <ul class="space-y-2">
+            <li><a href="catalog.html" class="hover:text-white transition">Footwear</a></li>
+            <li><a href="catalog.html" class="hover:text-white transition">Shirts</a></li>
+            <li><a href="catalog.html" class="hover:text-white transition">Pants</a></li>
+            <li><a href="catalog.html" class="hover:text-white transition">Accessories</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-lg mb-4">Legal</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:text-white transition">Terms &amp; Conditions</a></li>
+            <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-white transition">About the Brand</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-lg mb-4">Contact</h4>
+          <ul class="space-y-2">
+            <li><a href="mailto:contact@maison-elegance.fr" class="hover:text-white transition">contact@maison-elegance.fr</a></li>
+            <li><a href="tel:+33123456789" class="hover:text-white transition">+33 1 23 45 67 89</a></li>
+            <li><p class="text-gray-400">48 Rue de la Paix, Paris</p></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-8 pt-6 text-center text-sm text-gray-500">
+        &copy; 2026 Maison Élégance. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('menu-toggle')?.addEventListener('click', function() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
